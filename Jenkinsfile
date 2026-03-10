@@ -5,14 +5,14 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/devops-s3-project.git'
+                git 'https://github.com/Krish-dumra/devops-s3-project.git'
             }
         }
 
         stage('Deploy to S3') {
             steps {
                 sh '''
-                aws s3 sync . s3://YOUR_BUCKET_NAME --delete
+                aws s3 sync . s3://krish-devops-site1  --delete
                 '''
             }
         }

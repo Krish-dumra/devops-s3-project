@@ -5,9 +5,9 @@ pipeline {
 
         stage('Deploy to S3') {
             steps {
-                sh '''
-                aws s3 sync . s3://krish-devops-site1 --delete
-                '''
+                withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
+                    sh 'aws s3 sync . s3://krish-devops-site1 --delete'
+                }
             }
         }
 
